@@ -18,12 +18,26 @@ lexicon = SentimentLexicon()
 class SentimentVector():
 
     def __init__(self, word):
+        self.word = word
         self.word_vector = []
         for emotion in EMOTION_LIST:
             if word in lexicon[emotion]:
                 self.word_vector.append(lexicon[emotion][word])
             else:
                 self.word_vector.append(DEFAULT_SENTIMENT_VALUE)
+
+
+    def get_dominant_sentiment(self):
+        max_sentiment_value = 0
+        max_sentiment_index = 0
+        idx = 0
+        for sentiment in self.word_vector:
+            if sentiment > max_sentiment_value:
+                max_sentiment_value = sentiment
+                max_sentiment_index = idx
+            idx += 1
+        return max_sentiment_index
+
 
 
     def get_sentiment_vector(self):

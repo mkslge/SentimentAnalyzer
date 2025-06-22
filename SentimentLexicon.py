@@ -11,9 +11,9 @@ class SentimentLexicon():
 
 
     def __init__(self):
-        lexicon = []
+        self.lexicon = []
         for emotion in EMOTION_LIST:
-            lexicon.append(self.load_emotion_from_lexicon(emotion))
+            self.lexicon.append(self.load_emotion_from_lexicon(emotion))
 
 
 
@@ -36,3 +36,5 @@ class SentimentLexicon():
 
         return hashmap
 
+    def get_lexicon_value(self, word: str, emotion_index) -> int:
+        return self.lexicon
