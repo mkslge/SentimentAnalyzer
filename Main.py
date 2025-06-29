@@ -7,7 +7,7 @@ from Sentence import SentenceEvaluator
 sentiment = SentimentLexicon()
 
 
-sentence = "I am very wealthy"
+sentence = "I am very angelic"
 sentence_evaluator = SentenceEvaluator(sentence)
 print(sentence_evaluator.get_sentiment())
 
