@@ -8,6 +8,8 @@ class SentenceEvaluator:
 
     def __init__(self, sentence):
         self.sentence = sentence
+        self.sentence = self.remove_punctuation_from_sentence()
+
         self.words = self.tokenize()
         self.word_vectors = self.get_word_vectors()
         self.sentiment_vectors_sum = self.sum_sentiment_vectors()
@@ -15,6 +17,19 @@ class SentenceEvaluator:
 
     def tokenize(self):
         return self.sentence.split()
+
+    def remove_punctuation_from_sentence(self):
+        self.sentence = self.sentence.replace(".", "")
+        self.sentence = self.sentence.replace("?", "")
+        self.sentence = self.sentence.replace("!", "")
+        self.sentence = self.sentence.replace(",", "")
+        self.sentence = self.sentence.replace(";", "")
+        self.sentence = self.sentence.replace("(", "")
+        self.sentence = self.sentence.replace(")", "")
+        self.sentence = self.sentence.replace("[", "")
+        self.sentence = self.sentence.replace("]", "")
+        return self.sentence
+
 
     def get_word_vectors(self):
         word_vectors = []
