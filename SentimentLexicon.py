@@ -15,6 +15,13 @@ class SentimentLexicon():
         for emotion in EMOTION_LIST:
             self.lexicon.append(self.load_emotion_from_lexicon(emotion))
 
+    def __getitem__(self, emotion: str) -> dict[str, int]:
+        if emotion not in EMOTION_LIST:
+            raise KeyError(f"Emotion '{emotion}' not found in lexicon.")
+        index = EMOTION_LIST.index(emotion)
+        return self.lexicon[index]
+
+
 
 
     def load_emotion_from_lexicon(self, emotion: str) -> dict[str, int]:

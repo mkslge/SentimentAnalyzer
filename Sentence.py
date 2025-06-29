@@ -24,11 +24,10 @@ class SentenceEvaluator:
         return word_vectors
 
     def sum_sentiment_vectors(self):
-        self.sentiment_vectors_sum = {0,0,0,0,0,0,0,0}
+        self.sentiment_vectors_sum = [0] * len(EMOTION_LIST)
         for word_vector in self.word_vectors:
-            idx = 0
-            for sentiment_value in word_vector.sentiment_values:
-                sentiment_value[idx] += sentiment_value
+            for idx, sentiment_value in enumerate(word_vector.get_sentiment_vector()):
+                self.sentiment_vectors_sum[idx] += sentiment_value
         return self.sentiment_vectors_sum
 
 
