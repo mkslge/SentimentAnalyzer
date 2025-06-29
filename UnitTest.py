@@ -6,12 +6,13 @@ EMOTION_LIST = ["anger", "anticipation", "disgust", "fear", "joy", "sadness", "s
 neutral_sentence = "This is a random string"
 angry_sentence = "I hate you"
 anticipation_sentence = "I can't wait for the big day"
-disgust_sentence = "maggot."
+disgust_sentence = "maggot"
 fear_sentence = "terror"
 joy_sentence = "I personally think you are angelic"
 sadness_sentence = "remove"
 surprise_sentence = "suddenly"
 trust_sentence = "I know I can count on you no matter what."
+punctuation_sentence = "Ahh help, (theres a maggot)!"
 
 neutral_evaluator = SentenceEvaluator(neutral_sentence)
 angry_evaluator = SentenceEvaluator(angry_sentence)
@@ -22,6 +23,8 @@ joy_evaluator = SentenceEvaluator(joy_sentence)
 sadness_evaluator = SentenceEvaluator(sadness_sentence)
 surprise_evaluator = SentenceEvaluator(surprise_sentence)
 trust_evaluator = SentenceEvaluator(trust_sentence)
+punctuation_evaluator = SentenceEvaluator(punctuation_sentence)
+
 
 neutral_evaluation = neutral_evaluator.evaluate_sentiment()
 angry_evaluation = angry_evaluator.evaluate_sentiment()
@@ -32,6 +35,7 @@ joy_evaluation = joy_evaluator.evaluate_sentiment()
 sadness_evaluation = sadness_evaluator.evaluate_sentiment()
 surprise_evaluation = surprise_evaluator.evaluate_sentiment()
 trust_evaluation = trust_evaluator.evaluate_sentiment()
+punctuation_evaluation = punctuation_evaluator.evaluate_sentiment()
 
 if neutral_evaluation == "neutral":
     print("Neutral Test Passed!")
@@ -77,3 +81,8 @@ if trust_evaluation == "trust":
     print("Trust Test Passed!")
 else:
     print(f"Trust Test Failed, {trust_evaluation} != trust!")
+
+if punctuation_evaluation == "disgust":
+    print("Punctuation Test Passed!")
+else:
+    print(f"Punctuation Test Failed, {punctuation_evaluation} != disgust!")
