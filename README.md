@@ -1,0 +1,1 @@
+A Python-based sentiment analysis tool that evaluates the dominant emotion in a sentence using the NRC Emotion Lexicon.
