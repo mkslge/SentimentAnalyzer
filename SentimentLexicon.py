@@ -35,7 +35,6 @@ class SentimentLexicon():
 
                 line = line.strip()
                 line = line.split('\t')
-                print(line)
 
                 word = str(line[0])
                 emotion_value = int(line[1])
