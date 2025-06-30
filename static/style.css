@@ -43,3 +43,9 @@ input[type="text"] {
 button {
     padding: 8px 12px;
 }
+
+
+  body {
+    transition: background 1.5s ease;
+  }
+

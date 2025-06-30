@@ -16,11 +16,18 @@ def index():
 def analyze():
     user_message = request.json.get("message", "")
     if not user_message.strip():
-        return jsonify({"response": "How are you feeling?"})
+        return jsonify({"response": "How are you feeling?", "emotion": None})
 
     message_evaluator = SentenceEvaluator(user_message)
     message_emotion = message_evaluator.get_sentiment()
-    return jsonify({"response": f"I see you're feeling {message_emotion}"})
+
+    # Example chatbot response, you can customize this more or integrate OpenAI here
+    chatbot_response = f"I see you're feeling {message_emotion}."
+
+    return jsonify({
+        "response": chatbot_response,
+        "emotion": message_emotion
+    })
 
 
 @app.route('/chat', methods=['POST'])
