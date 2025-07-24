@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 from Sentence import SentenceEvaluator
 
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+
 app = Flask(__name__)
 
 
